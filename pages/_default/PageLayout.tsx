@@ -1,14 +1,27 @@
 import React from 'react'
-import { defaultTheme, ThemeProvider, Preflight, x } from '@xstyled/emotion'
+import {
+  defaultTheme,
+  ThemeProvider,
+  Preflight,
+  x,
+  createGlobalStyle,
+} from '@xstyled/emotion'
 
 const theme = {
   ...defaultTheme,
 }
 
+const GlobalStyle = createGlobalStyle`
+  :root {
+    --theme-color-primary: darkblue;
+  }
+`
+
 export function PageLayout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider theme={theme}>
       <Preflight />
+      <GlobalStyle />
       <Layout>
         <Header>
           <Nav>
@@ -33,7 +46,7 @@ function NavLink(props: any) {
     <x.a
       padding={{ _: 2, sm: 3 }}
       display="block"
-      backgroundColor="#333"
+      backgroundColor="var(--theme-color-primary, #333)"
       textDecoration="none"
       hoverBackgroundColor="#777"
       color="white"

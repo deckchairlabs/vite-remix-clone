@@ -1,10 +1,10 @@
-import { Post } from '@prisma/client'
 import React from 'react'
+import PageTitle from '../components/PageTitle'
 
 export default function About() {
   return (
     <>
-      <h1>About</h1>
+      <PageTitle>About</PageTitle>
     </>
   )
 }

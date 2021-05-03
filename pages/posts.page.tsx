@@ -1,6 +1,7 @@
 import { Post } from '@prisma/client'
 import { x } from '@xstyled/emotion'
 import React from 'react'
+import PageTitle from '../components/PageTitle'
 
 type PostsPageProps = {
   posts: Post[]
@@ -9,15 +10,14 @@ type PostsPageProps = {
 export default function Posts({ posts }: PostsPageProps) {
   return (
     <>
-      <h1>Blog</h1>
+      <PageTitle>Blog</PageTitle>
 
       {posts.map((post) => {
         return (
-          <div key={post.id}>
-            <h1>{post.title}</h1>
+          <x.div key={post.id} marginBottom={3}>
+            <x.h2 fontSize="xl">{post.title}</x.h2>
             <div>{post.content}</div>
-            <x.hr my={3} borderTop="1px solid" />
-          </div>
+          </x.div>
         )
       })}
 
