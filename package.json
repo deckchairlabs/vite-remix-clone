@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "vite build && vite build --ssr",
-    "start": "cross-env NODE_ENV=production ts-node ./server"
+    "start": "cross-env NODE_ENV=production ts-node ./server",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
